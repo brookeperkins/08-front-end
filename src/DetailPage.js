@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { fetchQueen } from './queens-api.js';
+import { fetchThatQueen } from './queens-api.js';
 
 class DetailPage extends Component {
     state = {
@@ -7,7 +7,7 @@ class DetailPage extends Component {
     }
 
     componentDidMount = async () => {
-        const data = await fetchQueen(this.props.match.params.id)
+        const data = await fetchThatQueen(this.props.match.params.id)
     
         this.setState({
           queen: data.body
