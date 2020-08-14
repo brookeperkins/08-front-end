@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchDerbyPlayers } from './derby-players-api.js';
+import { fetchThoseQueens } from './queen-api.js';
 import { Link } from 'react-router-dom';
 import './App.css';
 
@@ -9,7 +9,7 @@ class ListPage extends React.Component {
   }
 
   componentDidMount = async () => {
-    const data = await fetchDerbyPlayers()
+    const data = await fetchThoseQueens()
 
     this.setState({
       derby_players: data.body
