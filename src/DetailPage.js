@@ -18,7 +18,7 @@ class DetailPage extends Component {
     render() {
         return (
             <div>
-               Here is your sick axe <span role="img" aria-label="sick-axe">🎸</span>: It is {this.state.queen.color} and it has {this.state.queen.strings} strings!
+               Here's your Queen! All hail {this.state.queen.name}. As she always says: {this.state.queen.quote}!
             </div>
         )
     }
