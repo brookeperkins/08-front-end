@@ -1,18 +1,18 @@
 import React from 'react';
-import { fetchThoseQueens } from './queen-api.js';
+import { fetchThoseQueens } from './queens-api.js';
 import { Link } from 'react-router-dom';
 import './App.css';
 
 class ListPage extends React.Component {
   state = {
-    derby_players: []
+   queens: []
   }
 
   componentDidMount = async () => {
     const data = await fetchThoseQueens()
 
     this.setState({
-      derby_players: data.body
+     queens: data.body
     })
   }
 
