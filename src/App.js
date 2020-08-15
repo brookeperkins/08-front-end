@@ -5,26 +5,28 @@ import {
   Switch,
   Link
 } from 'react-router-dom';
+import Header from './Header.js';
 import ListPage from './ListPage.js';
 import CreatePage from './CreatePage.js';
 import DetailPage from './DetailPage.js';
+import Footer from './Footer.js';
 import './App.css';
 
 class App extends Component {
   render() {
       return (
-          <div className="App">
-          <header className="App-header">    
+          <>
+          <body>
               <Router>
-                  <main>
-
-                  <div className="sidebar">
-                  <Link to='/create'>Create</Link>
-                  <Link to='/'>List</Link>
-                  </div>
-                  <div className="content">
-                  <Switch>
-                      <Route 
+                  <header>
+                      <Header />
+                      <nav>
+                          <Link className="navLinks" to="/">Home</Link>
+                          <Link className="navLinks" to="/create">Create</Link>
+                      </nav>
+                    </header>
+                    <Switch>
+                        <Route 
                           path="/" 
                           exact
                           render={(routerProps) => <ListPage {...routerProps} />} 
@@ -39,13 +41,11 @@ class App extends Component {
                           exact
                           render={(routerProps) => <DetailPage {...routerProps} />} 
                       />
-                  </Switch>
-                  </div>
-                  
-                  </main>
-                  </Router>
-          </header>
-          </div>
+                    </Switch>
+                  <Footer />
+              </Router>
+          </body>
+          </>
       )
   }
 }
