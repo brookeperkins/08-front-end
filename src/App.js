@@ -15,16 +15,14 @@ import './App.css';
 class App extends Component {
   render() {
       return (
-          <>
-          <body>
+          <div className="body">
               <Router>
-                  <header>
                       <Header />
                       <nav>
                           <Link className="navLinks" to="/">Home</Link>
                           <Link className="navLinks" to="/create">Create</Link>
                       </nav>
-                    </header>
+                    <div className="main">
                     <Switch>
                         <Route 
                           path="/" 
@@ -42,10 +40,10 @@ class App extends Component {
                           render={(routerProps) => <DetailPage {...routerProps} />} 
                       />
                     </Switch>
+                    </div>
                   <Footer />
               </Router>
-          </body>
-          </>
+          </div>
       )
   }
 }

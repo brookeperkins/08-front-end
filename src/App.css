@@ -1,38 +1,109 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+body {
+  background-color: pink;
+  --color1: hsla(316, 100%, 68%, 1);
+  --color2: hsla(178, 51%, 57%, 1);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header>h1 {
+  font-family: Pacifico;
+  font-size: 4em;
+  line-height: .01;
+  color: white;
+  letter-spacing: 6px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--color2);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav {
+  margin: 20px;
+  border: solid 5px var(--color2);
+  border-radius: 10px;
+  background-color: var(--color1);
+  font-size: 2em;
+  min-width: 90%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  padding: 10px;
+}
+
+.navLinks{
+  color: yellow;
+  font-family: Pacifico;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+  width: 90%;
+  border: solid 6px var(--color1);
+  border-radius: 15px;
+  background-color: white;
+  font-size: 1.3em;
+  padding: 20px;
+}
+
+img {
+  height:  auto;
+  width: 200px;
+  border: solid 3px var(--color1);
+  margin-top:20px;
+}
+
+h2 {
+  font-family: Pacifico;
+  color: var(--color1);
+  line-height: .2;
+}
+
+h3 {
+  font-family: Pacifico;
+  line-height: .2;
+
+}
+
+.Queenie {
+  color: yellow;
+}
+
+.queen {
+  padding: 20px;
+  margin: 50px;
+}
+
+.queen-details {
+  width: 500px;
+  border: solid 2px black;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 20px;
+  margin: 40px;
+  background-color: var(--color2);
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 80%;
+  max-width: 90%;
+  margin: 50px;
+  font-family: 'Courier New', Courier, monospace;
+  border: solid 2px yellow;
 }
