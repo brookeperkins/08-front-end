@@ -15,7 +15,6 @@ class DetailPage extends Component {
         })
       }
     
-
     render() {
         return (
             <div className="detail">
@@ -27,10 +26,3 @@ class DetailPage extends Component {
 }
 
 export default DetailPage;
-
-{/* <h3>Winner?</h3> 
-<p>{queen.winner ? 'Yes' : 'No'}</p>
-<h3>Miss Congeniality?</h3>
-<p>{queen.miss_congeniality ? 'Yes' : 'No'}</p>
-<h3>Like she always says:</h3> 
-<p>{queen.quote}</p> */}

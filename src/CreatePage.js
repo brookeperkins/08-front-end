@@ -5,9 +5,9 @@ import './App.css';
 export default class CreatePage extends Component {
     state = {
         name: '',
-        winner: false,
-        miss_congeniality: false,
+        image_url: '',
         quote: '',
+        winner: ''
     }
 
     handleSubmit = async (e) => {
@@ -15,15 +15,15 @@ export default class CreatePage extends Component {
 
         await createThatQueen({
             name: this.state.name,
+            image_url: this.state.image_url,
             winner: this.state.winner,
-            miss_congeniality: this.state.miss_congeniality,
             quote: this.state.quote,
         });
 
         this.setState({
             name: '',
-            winner: false,
-            miss_congeniality: false,
+            image_url:'',
+            winner:'',
             quote: '',
         })
     }
@@ -32,12 +32,12 @@ export default class CreatePage extends Component {
         this.setState({ name: e.target.value });
     }
 
-    handleWinnerChange = e => {
-        this.setState({ winner: e.target.value });
+    handleImageChange = e => {
+        this.setState({ image_url: e.target.value });
     }
 
-    handleMissConChange = e => {
-        this.setState({ miss_congeniality: e.target.value });
+    handleWinnerChange = e => {
+        this.setState({ winner: e.target.value });
     }
 
     handleQuoteChange = e => {
@@ -54,22 +54,16 @@ export default class CreatePage extends Component {
                         <input onChange={this.handleNameChange} value={this.state.name} placeholder="Name that Queen!"></input>
                     </label>
                     <label>
-                        Is she a winner?
-                        <select onChange={this.handleWinnerChange} placeholder="No">
-                            <option value={true}>Yes</option>
-                            <option value={false}>No</option>
-                        </select>
-                    </label>
-                    <label>
-                        Is she Miss Congeniality?
-                        <select onChange={this.handleMissConChange} placeholder="No">
-                            <option value={true}>Yes</option>
-                            <option value={false}>No</option>
-                        </select>
-                    </label>
-                    <label>
                         Quote:
                         <input onChange={this.handleQuoteChange} value={this.state.quote} placeholder="Say something fierce!"></input>
+                    </label>
+                    <label>
+                        What does she WIN?
+                        <select onChange={this.handleWinnerChange} >
+                            <option value='Winner'>She Wins It All!</option>
+                            <option value='Congeniality'>She's Miss Congeniality!</option>
+                            <option value='Loser'>Participation Trophy?</option>
+                        </select>
                     </label>
                     <button>Add Queen</button>
                 </form>
