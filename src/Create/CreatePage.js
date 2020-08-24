@@ -1,69 +1,69 @@
 import React, { Component } from 'react'
-import { createThatQueen, fetchThoseQueens } from '../Create/queens-api.js';
-import '../App.css';
+import { createThatQueen, fetchWinners } from './queens-api.js'
+import '../App.css'
 
 export default class CreatePage extends Component {
     state = {
         name: '',
         image_url: '',
         quote: '',
-        winner_id: []
+        winner_id: 1,
+        winners: []
     }
 
     componentDidMount = async () => {
-        const queensData = await fetchThoseQueens()
+        const winnersData = await fetchWinners()
     
         this.setState({
-          queens: queensData.body
+          winners: winnersData.body
         })
       }
-
+    
     handleSubmit = async (e) => {
         e.preventDefault();
 
         await createThatQueen({
             name: this.state.name,
             image_url: this.state.image_url,
-            winner_id: this.state.winner,
             quote: this.state.quote,
+            winner_id: this.state.winner_id
         });
 
         this.setState({
             name: '',
-            image_url:'',
-            winner_type:'',
-            quote: '',
+            image_url: '',
+            quote: 1,
+            winner_type: ''
         })
-        
+
         this.props.history.push('/');
     }
 
-
-
-    handleNameChange = e => {
+    handleNameChange = (e) => {
         this.setState({ name: e.target.value });
     }
-
-    handleImageChange = e => {
+    
+    handleImageChange = (e) => {
         this.setState({ image_url: e.target.value });
     }
 
-    handleWinnerChange = e => {
-        this.setState({ winner_id: e.target.value });
-    }
-
-    handleQuoteChange = e => {
+    handleQuoteChange = (e) => {
         this.setState({ quote: e.target.value });
     }
 
+    handleWinnerChange = (e) => {
+        this.setState({ winner_id: e.target.value })
+    }
+    
+    
     render() {
         return (
             <div className="main">
                 <h2>Queen Creator</h2>
                 <form onSubmit={this.handleSubmit}>
                     <label>
-                        Name:
-                        <input onChange={this.handleNameChange} value={this.state.name} placeholder="Name that Queen!"></input>
+                        Name
+                        <input onChange={this.handleNameChange} type="text" value={this.state.name}/>
                     </label>
                     <label>
                         Image:
@@ -75,15 +75,14 @@ export default class CreatePage extends Component {
                     </label>
                     <label>
                         What does she WIN?
-                        <select onChange={this.handleWinnerChange} >
-                            <option value='Winner'>The CROWN!</option>
-                            <option value='Congeniality'>Miss Congeniality!</option>
-                            <option value='Loser'>A Participation Trophy?</option>
+                        <select onChange={this.handleWinnerChange} value={this.state.winner_id}>
+                            {
+                                this.state.winners.map((winner) => <option value={winner.id}>{winner.winner_type}</option>)
+                            }
                         </select>
                     </label>
                     <button>Add Queen</button>
                 </form>
-                
             </div>
         )
     }
