@@ -83,6 +83,37 @@ h3 {
   margin: 50px;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  padding: 5px;
+  margin-top: 20px;
+  line-height: 50px;
+  margin-bottom: 20px;
+  background-color: yellow;
+  padding: 50px;
+  border: var(--color2) 2px solid;
+}
+
+input {
+  border: solid black 2px;
+  margin-left: 15px;
+  padding: 5px;
+}
+
+select {
+  border: black solid 2px;
+  margin-left: 15px;
+  padding: 5px;
+  margin-bottom: 40px;
+}
+
+form>button {
+  width: 100px;
+}
+
 .queen-details {
   width: 500px;
   border: solid 2px black;

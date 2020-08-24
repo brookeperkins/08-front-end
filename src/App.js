@@ -6,9 +6,9 @@ import {
   Link
 } from 'react-router-dom';
 import Header from './Header.js';
-import ListPage from './ListPage.js';
-import CreatePage from './CreatePage.js';
-import DetailPage from './DetailPage.js';
+import ListPage from './List/ListPage.js';
+import CreatePage from './Create/CreatePage.js';
+import DetailPage from './List/DetailPage.js';
 import Footer from './Footer.js';
 import './App.css';
 

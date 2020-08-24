@@ -1,14 +1,22 @@
 import React, { Component } from 'react'
-import { createThatQueen } from './queens-api.js';
-import './App.css';
+import { createThatQueen, fetchThoseQueens } from '../Create/queens-api.js';
+import '../App.css';
 
 export default class CreatePage extends Component {
     state = {
         name: '',
         image_url: '',
         quote: '',
-        winner: ''
+        winner: []
     }
+
+    componentDidMount = async () => {
+        const queensData = await fetchThoseQueens()
+    
+        this.setState({
+          queens: queensData.body
+        })
+      }
 
     handleSubmit = async (e) => {
         e.preventDefault();
@@ -26,7 +34,11 @@ export default class CreatePage extends Component {
             winner:'',
             quote: '',
         })
+        
+        this.props.history.push('/');
     }
+
+
 
     handleNameChange = e => {
         this.setState({ name: e.target.value });
@@ -54,15 +66,19 @@ export default class CreatePage extends Component {
                         <input onChange={this.handleNameChange} value={this.state.name} placeholder="Name that Queen!"></input>
                     </label>
                     <label>
+                        Image:
+                        <input onChange={this.handleImageChange} value={this.state.image_url} placeholder='Enter Image URL...' required />
+                    </label>
+                    <label>
                         Quote:
                         <input onChange={this.handleQuoteChange} value={this.state.quote} placeholder="Say something fierce!"></input>
                     </label>
                     <label>
                         What does she WIN?
                         <select onChange={this.handleWinnerChange} >
-                            <option value='Winner'>She Wins It All!</option>
-                            <option value='Congeniality'>She's Miss Congeniality!</option>
-                            <option value='Loser'>Participation Trophy?</option>
+                            <option value='Winner'>The CROWN!</option>
+                            <option value='Congeniality'>Miss Congeniality!</option>
+                            <option value='Loser'>A Participation Trophy?</option>
                         </select>
                     </label>
                     <button>Add Queen</button>
