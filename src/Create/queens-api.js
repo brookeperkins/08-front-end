@@ -1,6 +1,6 @@
 import request from 'superagent';
 
-const URL = process.env.REACT_APP_API_URL;
+const URL = process.env.REACT_APP_API_URL || 'https://back-end-lab-08.herokuapp.com';
 
 export function fetchThoseQueens() {
     return request.get(`${URL}/queens`);

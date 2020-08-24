@@ -7,7 +7,7 @@ export default class CreatePage extends Component {
         name: '',
         image_url: '',
         quote: '',
-        winner: []
+        winner_id: []
     }
 
     componentDidMount = async () => {
@@ -24,14 +24,14 @@ export default class CreatePage extends Component {
         await createThatQueen({
             name: this.state.name,
             image_url: this.state.image_url,
-            winner: this.state.winner,
+            winner_id: this.state.winner,
             quote: this.state.quote,
         });
 
         this.setState({
             name: '',
             image_url:'',
-            winner:'',
+            winner_type:'',
             quote: '',
         })
         
@@ -49,7 +49,7 @@ export default class CreatePage extends Component {
     }
 
     handleWinnerChange = e => {
-        this.setState({ winner: e.target.value });
+        this.setState({ winner_id: e.target.value });
     }
 
     handleQuoteChange = e => {
